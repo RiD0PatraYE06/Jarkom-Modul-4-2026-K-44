@@ -1,10 +1,8 @@
 # ==================================================
-# Interface GNS3
+# Interface GNS3 (/etc/network/interfaces)
 # ==================================================
 
-# Router
-
-# Cyberia
+# Router Cyberia
 auto lo
 iface lo inet loopback
 
@@ -13,438 +11,442 @@ iface eth0 inet dhcp
 
 auto eth1
 iface eth1 inet static
-    address 192.233.32.1
+    address 192.233.56.1
     netmask 255.255.255.128
 
 auto eth2
 iface eth2 inet static
-    address 192.233.32.129
+    address 192.233.56.129
     netmask 255.255.255.252
-    up ip route add 192.233.0.0/17 via 192.233.32.130
+    up ip route add 192.233.0.0/19 via 192.233.56.130
     up iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 
-# Wired
+# Router Wired
 auto lo
 iface lo inet loopback
 
 auto eth0
 iface eth0 inet static
-    address 192.233.32.130
+    address 192.233.56.130
     netmask 255.255.255.252
-    gateway 192.233.32.129
+    gateway 192.233.56.129
 
 auto eth1
 iface eth1 inet static
-    address 192.233.20.1
+    address 192.233.34.73
     netmask 255.255.255.248
-    up ip route add 192.233.0.0/19 via 192.233.20.2
+    up ip route add 192.233.24.0/19 via 192.233.34.74
 
 auto eth2
 iface eth2 inet static
-    address 192.233.84.1
+    address 192.233.18.65
     netmask 255.255.255.252
-    up ip route add 192.233.80.0/21 via 192.233.84.2
+    up ip route add 192.233.16.0/21 via 192.233.18.66
 
 auto eth3
 iface eth3 inet static
-    address 192.233.74.1
+    address 192.233.3.41
     netmask 255.255.255.252
-    up ip route add 192.233.64.0/20 via 192.233.74.2
+    up ip route add 192.233.0.0/20 via 192.233.3.42
 
-# Psyche
+# Router Psyche
 auto lo
 iface lo inet loopback
 
 auto eth0
 iface eth0 inet static
-    address 192.233.20.2
+    address 192.233.34.74
     netmask 255.255.255.248
-    gateway 192.233.20.1
+    gateway 192.233.34.73
+
+auto eth1
+iface eth1 inet static
+    address 192.233.24.1
+    netmask 255.255.252.0
+
+# Router Copland
+auto lo
+iface lo inet loopback
+
+auto eth0
+iface eth0 inet static
+    address 192.233.34.75
+    netmask 255.255.255.248
+    gateway 192.233.34.73
+
+auto eth1
+iface eth1 inet static
+    address 192.233.34.1
+    netmask 255.255.255.192
+
+auto eth2
+iface eth2 inet static
+    address 192.233.32.1
+    netmask 255.255.254.0
+
+# Router Schumann
+auto lo
+iface lo inet loopback
+
+auto eth0
+iface eth0 inet static
+    address 192.233.34.76
+    netmask 255.255.255.248
+    gateway 192.233.34.73
+
+auto eth1
+iface eth1 inet static
+    address 192.233.34.65
+    netmask 255.255.255.248
+
+auto eth2
+iface eth2 inet static
+    address 192.233.34.81
+    netmask 255.255.255.252
+    up ip route add 192.233.28.0/22 via 192.233.34.82
+
+# Router Accela
+auto lo
+iface lo inet loopback
+
+auto eth0
+iface eth0 inet static
+    address 192.233.34.82
+    netmask 255.255.255.252
+    gateway 192.233.34.81
+
+auto eth1
+iface eth1 inet static
+    address 192.233.28.1
+    netmask 255.255.252.0
+
+# Router Navi
+auto lo
+iface lo inet loopback
+
+auto eth0
+iface eth0 inet static
+    address 192.233.18.66
+    netmask 255.255.255.252
+    gateway 192.233.18.65
 
 auto eth1
 iface eth1 inet static
     address 192.233.16.1
-    netmask 255.255.252.0
-
-# Copland
-auto lo
-iface lo inet loopback
-
-auto eth0
-iface eth0 inet static
-    address 192.233.20.3
-    netmask 255.255.255.248
-    gateway 192.233.20.1
-
-auto eth1
-iface eth1 inet static
-    address 192.233.10.1
-    netmask 255.255.255.192
-
-auto eth2
-iface eth2 inet static
-    address 192.233.8.1
-    netmask 255.255.254.0
-
-# Schumann
-auto lo
-iface lo inet loopback
-
-auto eth0
-iface eth0 inet static
-    address 192.233.20.4
-    netmask 255.255.255.248
-    gateway 192.233.20.1
-
-auto eth1
-iface eth1 inet static
-    address 192.233.4.1
-    netmask 255.255.255.248
-
-auto eth2
-iface eth2 inet static
-    address 192.233.4.9
-    netmask 255.255.255.252
-    up ip route add 192.233.0.0/22 via 192.233.4.10
-
-# Accela
-auto lo
-iface lo inet loopback
-
-auto eth0
-iface eth0 inet static
-    address 192.233.4.10
-    netmask 255.255.255.252
-    gateway 192.233.4.9
-
-auto eth1
-iface eth1 inet static
-    address 192.233.0.1
-    netmask 255.255.252.0
-
-# Navi
-auto lo
-iface lo inet loopback
-
-auto eth0
-iface eth0 inet static
-    address 192.233.84.2
-    netmask 255.255.255.252
-    gateway 192.233.84.1
-
-auto eth1
-iface eth1 inet static
-    address 192.233.80.1
     netmask 255.255.255.0
 
 auto eth2
 iface eth2 inet static
-    address 192.233.81.129
+    address 192.233.18.1
     netmask 255.255.255.192
 
 auto eth3
 iface eth3 inet static
-    address 192.233.81.1
-    netmask 255.255.255.128
+    address 192.233.17.1
+    netmask 255.255.255.0
 
-# Tachibana
+# Router Tachibana
 auto lo
 iface lo inet loopback
 
 auto eth0
 iface eth0 inet static
-    address 192.233.74.2
+    address 192.233.3.42
     netmask 255.255.255.252
-    gateway 192.233.74.1
+    gateway 192.233.3.41
 
 auto eth1
 iface eth1 inet static
-    address 192.233.72.1
+    address 192.233.0.1
     netmask 255.255.254.0
 
 auto eth2
 iface eth2 inet static
-    address 192.233.68.129
+    address 192.233.3.45
     netmask 255.255.255.252
-    up ip route add 192.233.64.0/21 via 192.233.68.130
+    up ip route add 192.233.2.0/23 via 192.233.3.46
+    up ip route add 192.233.3.0/26 via 192.233.3.46
 
-# Deus
+# Router Deus
 auto lo
 iface lo inet loopback
 
 auto eth0
 iface eth0 inet static
-    address 192.233.68.130
+    address 192.233.3.46
     netmask 255.255.255.252
-    gateway 192.233.68.129
+    gateway 192.233.3.45
 
 auto eth1
 iface eth1 inet static
-    address 192.233.68.1
+    address 192.233.2.1
     netmask 255.255.255.128
 
 auto eth2
 iface eth2 inet static
-    address 192.233.66.65
+    address 192.233.3.49
     netmask 255.255.255.252
-    up ip route add 192.233.64.0/22 via 192.233.66.66
+    up ip route add 192.233.2.128/25 via 192.233.3.50
+    up ip route add 192.233.3.0/26 via 192.233.3.50
 
-# Protocol7
+# Router Protocol7
 auto lo
 iface lo inet loopback
 
 auto eth0
 iface eth0 inet static
-    address 192.233.66.66
+    address 192.233.3.50
     netmask 255.255.255.252
-    gateway 192.233.66.65
+    gateway 192.233.3.49
 
 auto eth1
 iface eth1 inet static
-    address 192.233.66.1
+    address 192.233.2.193
     netmask 255.255.255.192
 
 auto eth2
 iface eth2 inet static
-    address 192.233.65.9
+    address 192.233.3.53
     netmask 255.255.255.252
-    up ip route add 192.233.64.0/23 via 192.233.65.10
+    up ip route add 192.233.2.128/26 via 192.233.3.54
+    up ip route add 192.233.3.0/27 via 192.233.3.54
 
-# Knights
+# Router Knights
 auto lo
 iface lo inet loopback
 
 auto eth0
 iface eth0 inet static
-    address 192.233.65.10
+    address 192.233.3.54
     netmask 255.255.255.252
-    gateway 192.233.65.9
+    gateway 192.233.3.53
 
 auto eth1
 iface eth1 inet static
-    address 192.233.65.1
+    address 192.233.3.33
     netmask 255.255.255.248
 
 auto eth2
 iface eth2 inet static
-    address 192.233.64.161
+    address 192.233.3.57
     netmask 255.255.255.252
-    up ip route add 192.233.64.0/24 via 192.233.64.162
+    up ip route add 192.233.2.128/26 via 192.233.3.58
+    up ip route add 192.233.3.0/27 via 192.233.3.58
 
-# Phantoma
+# Router Phantoma
 auto lo
 iface lo inet loopback
 
 auto eth0
 iface eth0 inet static
-    address 192.233.64.162
+    address 192.233.3.58
     netmask 255.255.255.252
-    gateway 192.233.64.161
+    gateway 192.233.3.57
 
 auto eth1
 iface eth1 inet static
-    address 192.233.64.129
+    address 192.233.3.1
     netmask 255.255.255.224
 
 auto eth2
 iface eth2 inet static
-    address 192.233.64.65
+    address 192.233.3.61
     netmask 255.255.255.252
-    up ip route add 192.233.64.0/25 via 192.233.64.66
+    up ip route add 192.233.2.128/26 via 192.233.3.62
 
-# Shibuya
+# Router Shibuya
 auto lo
 iface lo inet loopback
 
 auto eth0
 iface eth0 inet static
-    address 192.233.64.66
+    address 192.233.3.62
     netmask 255.255.255.252
-    gateway 192.233.64.65
+    gateway 192.233.3.61
 
 auto eth1
 iface eth1 inet static
-    address 192.233.64.1
+    address 192.233.2.129
     netmask 255.255.255.192
 
-# =================================================
+# ==================================================
+# Client Nodes GNS3 (/etc/network/interfaces)
+# ==================================================
 
-# Client
+# JJ (Subnet A1 - 95 host)
+auto eth0
+iface eth0 inet static
+    address 192.233.56.2
+    netmask 255.255.255.128
+    gateway 192.233.56.1
 
-# JJ (Subnet A1)
+# MyuMyu (Subnet A1 - 30 host)
+auto eth0
+iface eth0 inet static
+    address 192.233.56.97
+    netmask 255.255.255.128
+    gateway 192.233.56.1
+
+# Karl (Subnet A4 - 700 host)
+auto eth0
+iface eth0 inet static
+    address 192.233.24.2
+    netmask 255.255.252.0
+    gateway 192.233.24.1
+
+# Lin (Subnet A4 - 180 host)
+auto eth0
+iface eth0 inet static
+    address 192.233.26.190
+    netmask 255.255.252.0
+    gateway 192.233.24.1
+
+# Juri (Subnet A5 - 31 host)
+auto eth0
+iface eth0 inet static
+    address 192.233.34.2
+    netmask 255.255.255.192
+    gateway 192.233.34.1
+
+# Masayuki (Subnet A6 - 300 host)
 auto eth0
 iface eth0 inet static
     address 192.233.32.2
-    netmask 255.255.255.128
+    netmask 255.255.254.0
     gateway 192.233.32.1
 
-# MyuMyu (Subnet A1)
+# Akashic (Subnet A7 - 3 host)
 auto eth0
 iface eth0 inet static
-    address 192.233.32.3
-    netmask 255.255.255.128
-    gateway 192.233.32.1
+    address 192.233.34.66
+    netmask 255.255.255.248
+    gateway 192.233.34.65
 
-# Karl (Subnet A4)
+# Omnipresence (Subnet A9 - 510 host)
+auto eth0
+iface eth0 inet static
+    address 192.233.28.2
+    netmask 255.255.252.0
+    gateway 192.233.28.1
+
+# Denpa (Subnet A9 - 3 host)
+auto eth0
+iface eth0 inet static
+    address 192.233.30.0
+    netmask 255.255.252.0
+    gateway 192.233.28.1
+
+# Alice (Subnet A11 - 208 host)
 auto eth0
 iface eth0 inet static
     address 192.233.16.2
-    netmask 255.255.252.0
+    netmask 255.255.255.0
     gateway 192.233.16.1
 
-# Lin (Subnet A4)
+# Reika (Subnet A11 - 45 host)
 auto eth0
 iface eth0 inet static
-    address 192.233.16.3
-    netmask 255.255.252.0
+    address 192.233.16.210
+    netmask 255.255.255.0
     gateway 192.233.16.1
 
-# Juri (Subnet A5)
+# Taro (Subnet A12 - 57 host)
 auto eth0
 iface eth0 inet static
-    address 192.233.10.2
+    address 192.233.18.2
     netmask 255.255.255.192
-    gateway 192.233.10.1
+    gateway 192.233.18.1
 
-# Masayuki (Subnet A6)
+# Yasuo (Subnet A13 - 120 host)
 auto eth0
 iface eth0 inet static
-    address 192.233.8.2
-    netmask 255.255.254.0
-    gateway 192.233.8.1
+    address 192.233.17.2
+    netmask 255.255.255.0
+    gateway 192.233.17.1
 
-# Akashic (Subnet A7)
+# Miho (Subnet A13 - 18 host)
 auto eth0
 iface eth0 inet static
-    address 192.233.4.2
-    netmask 255.255.255.248
-    gateway 192.233.4.1
+    address 192.233.17.122
+    netmask 255.255.255.0
+    gateway 192.233.17.1
 
-# Omnipresence (Subnet A9)
+# Kuma (Subnet A13 - 4 host)
+auto eth0
+iface eth0 inet static
+    address 192.233.17.140
+    netmask 255.255.255.0
+    gateway 192.233.17.1
+
+# Collective (Subnet A15 - 260 host)
 auto eth0
 iface eth0 inet static
     address 192.233.0.2
-    netmask 255.255.252.0
+    netmask 255.255.254.0
     gateway 192.233.0.1
 
-# Denpa (Subnet A9)
+# Ghost (Subnet A15 - 6 host)
 auto eth0
 iface eth0 inet static
-    address 192.233.0.3
-    netmask 255.255.252.0
+    address 192.233.1.6
+    netmask 255.255.254.0
     gateway 192.233.0.1
 
-# Alice (Subnet A11)
+# Lilith (Subnet A17 - 77 host)
 auto eth0
 iface eth0 inet static
-    address 192.233.80.2
-    netmask 255.255.255.0
-    gateway 192.233.80.1
+    address 192.233.2.2
+    netmask 255.255.255.128
+    gateway 192.233.2.1
 
-# Reika (Subnet A11)
+# Specter (Subnet A17 - 21 host)
 auto eth0
 iface eth0 inet static
-    address 192.233.80.3
-    netmask 255.255.255.0
-    gateway 192.233.80.1
+    address 192.233.2.79
+    netmask 255.255.255.128
+    gateway 192.233.2.1
 
-# Taro (Subnet A12)
+# Chisa (Subnet A19 - 23 host)
 auto eth0
 iface eth0 inet static
-    address 192.233.81.130
+    address 192.233.2.194
     netmask 255.255.255.192
-    gateway 192.233.81.129
+    gateway 192.233.2.193
 
-# Yasuo (Subnet A13)
+# Hodgeson (Subnet A19 - 9 host)
 auto eth0
 iface eth0 inet static
-    address 192.233.81.2
-    netmask 255.255.255.128
-    gateway 192.233.81.1
-
-# Miho (Subnet A13)
-auto eth0
-iface eth0 inet static
-    address 192.233.81.3
-    netmask 255.255.255.128
-    gateway 192.233.81.1
-
-# Kuma (Subnet A13)
-auto eth0
-iface eth0 inet static
-    address 192.233.81.4
-    netmask 255.255.255.128
-    gateway 192.233.81.1
-
-# Collective (Subnet A15)
-auto eth0
-iface eth0 inet static
-    address 192.233.72.2
-    netmask 255.255.254.0
-    gateway 192.233.72.1
-
-# Ghost (Subnet A15)
-auto eth0
-iface eth0 inet static
-    address 192.233.72.3
-    netmask 255.255.254.0
-    gateway 192.233.72.1
-
-# Lilith (Subnet A17)
-auto eth0
-iface eth0 inet static
-    address 192.233.68.2
-    netmask 255.255.255.128
-    gateway 192.233.68.1
-
-# Specter (Subnet A17)
-auto eth0
-iface eth0 inet static
-    address 192.233.68.3
-    netmask 255.255.255.128
-    gateway 192.233.68.1
-
-# Chisa (Subnet A19)
-auto eth0
-iface eth0 inet static
-    address 192.233.66.2
+    address 192.233.2.217
     netmask 255.255.255.192
-    gateway 192.233.66.1
+    gateway 192.233.2.193
 
-# Hodgeson (Subnet A19)
+# Eiri (Subnet A21 - 2 host)
 auto eth0
 iface eth0 inet static
-    address 192.233.66.3
-    netmask 255.255.255.192
-    gateway 192.233.66.1
-
-# Eiri (Subnet A21)
-auto eth0
-iface eth0 inet static
-    address 192.233.65.2
+    address 192.233.3.34
     netmask 255.255.255.248
-    gateway 192.233.65.1
+    gateway 192.233.3.33
 
-# Semi (Subnet A23)
+# Semi (Subnet A23 - 14 host)
 auto eth0
 iface eth0 inet static
-    address 192.233.64.130
+    address 192.233.3.2
     netmask 255.255.255.224
-    gateway 192.233.64.129
+    gateway 192.233.3.1
 
-# Lain (Subnet A25)
+# Lain (Subnet A25 - 57 host)
 auto eth0
 iface eth0 inet static
-    address 192.233.64.2
+    address 192.233.2.130
     netmask 255.255.255.192
-    gateway 192.233.64.1
+    gateway 192.233.2.129
 
-# Mika (Subnet A25)
+# Mika (Subnet A25 - 4 host)
 auto eth0
 iface eth0 inet static
-    address 192.233.64.3
+    address 192.233.2.187
     netmask 255.255.255.192
-    gateway 192.233.64.1
+    gateway 192.233.2.129
 
 
 
