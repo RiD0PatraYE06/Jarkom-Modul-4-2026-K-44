@@ -8,6 +8,8 @@
 | Nayarfa Syamahira Dyananta | 5027251046 |
 | Rido Patra Yudhistira Edwin | 5027251120 |
 
+**Link Spreadsheet:** https://docs.google.com/spreadsheets/d/1_s2K1xC-Ai4UcU0GGzbKKPc4mkSohm5H/edit?usp=sharing&ouid=107487448307781723146&rtpof=true&sd=true
+
 ---
 
 ## 1. Identifikasi Kebutuhan IP Tiap Rute
